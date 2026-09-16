@@ -6,13 +6,11 @@ A mobile-first PWA that calculates and displays the **fuel-limited reachable wat
 
 The React client is deployed at
 [https://ozlphrt.github.io/BoatRange/](https://ozlphrt.github.io/BoatRange/)
-through GitHub Pages. Its workflow reads the
-repository variable `API_BASE_URL` and uses it as the public FastAPI origin.
-The included `render.yaml` can deploy that API as a Render Blueprint; after
-the service is created, set `API_BASE_URL` to its HTTPS URL and rerun the
-Pages workflow.
-
-[Deploy the API on Render](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2Fozlphrt%2FBoatRange)
+through GitHub Pages. The deployed build is self-contained: it loads a static,
+versioned Aegean routing graph and runs fuel-cost expansion, route search,
+depth policy, obstacle-clearance checks, and band generation in a Web Worker.
+No backend host or API is required. Local Vite development continues to use
+the FastAPI server so backend and browser implementations can be compared.
 
 ## Defining Requirement
 
