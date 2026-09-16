@@ -1,0 +1,30 @@
+{
+  "source": "Hellenic Navy Hydrographic Service, Pilot D amendments",
+  "sourceUrl": "https://hnhs.gr/wp-content/uploads/2025/08/plohgos-d-1.pdf",
+  "fetchedAt": "2026-09-14T00:00:00Z",
+  "notices": [
+    {
+      "sourceId": "hnhs-pilot-d-206-2014",
+      "area": "Kos east coast, Cape Louros",
+      "restrictionClass": "CAUTION_CONDITIONAL",
+      "validMonths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "rule": "official text prohibits vessel transit close to Cape Louros during the stated season",
+      "geometryStatus": "MISSING_AUTHORITATIVE_BOUNDARY"
+    },
+    {
+      "sourceId": "hnhs-pilot-d-157-2019",
+      "area": "Nisyros north coast abandoned mining structures",
+      "restrictionClass": "CAUTION_CONDITIONAL",
+      "bufferM": 100,
+      "rule": "official text prohibits sailing, anchoring and fishing within 100 m of structures",
+      "geometryStatus": "MISSING_AUTHORITATIVE_STRUCTURE_GEOMETRY"
+    }
+  ]
+}

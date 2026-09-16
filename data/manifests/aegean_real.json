@@ -1,0 +1,18 @@
+{
+  "layer_type": "coastline_land_and_bathymetry",
+  "region_id": "aegean-real",
+  "region_bbox_wgs84": [24.75, 35.25, 30.25, 39.25],
+  "coastline_sources": [
+    "OpenStreetMap land-polygons-split-4326 snapshot fetched 2026-09-09",
+    "Higher-detail Bodrum/Kos OSM coastline snapshot fetched 2026-09-09"
+  ],
+  "depth_source": "EMODnet Bathymetry Digital Terrain Model 2024",
+  "depth_resolution_degrees": 0.0018518519,
+  "depth_resolution_note": "Approximately 206 m north/south at this latitude; finer than the current 600 m full-routing grid.",
+  "depth_checksum_sha256": "ba94eecf8ae3202ed400c0dc8382836c90d73b326ceb82ba54528c3ea54db8c5",
+  "limitations": [
+    "Not navigation-grade.",
+    "Regional obstacle, restriction, marina and fuel-dock coverage outside the detailed Bodrum/Kos area is incomplete.",
+    "Small land features below the wider OSM dataset's one-hectare filter may be absent outside Bodrum/Kos."
+  ]
+}

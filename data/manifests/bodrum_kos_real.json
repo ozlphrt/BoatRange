@@ -1,0 +1,56 @@
+{
+  "layer_type": "coastline_land",
+  "region_id": "bodrum-kos-real",
+  "source_name": "OpenStreetMap (Overpass API, overpass-api.de)",
+  "source_version": "overpass-snapshot-2026-09-09",
+  "source_features": [
+    {
+      "kind": "administrative_boundary_relation",
+      "osm_id": 1827275,
+      "name": "Bodrum",
+      "tags": {"admin_level": "6", "boundary": "administrative"},
+      "note": "Used instead of raw natural=coastline ways for the Bodrum peninsula: OSM admin relations are already valid, correctly-oriented closed multipolygons, unlike raw coastline ways which need noding and directional land/water classification."
+    },
+    {
+      "kind": "administrative_boundary_relation",
+      "osm_id": 536480,
+      "name": "Kos",
+      "tags": {"place": "island", "type": "multipolygon"},
+      "note": "19 outer member ways, all tagged natural=coastline, merged into one closed ring."
+    },
+    {
+      "kind": "natural_coastline_ways",
+      "query": "way[natural=coastline] in bbox (36.45,26.75,37.35,27.95)",
+      "element_count": 1178,
+      "note": "General coastline fetch used only for the ~470 small surrounding islands, via unary_union-based noding + polygonize (see scripts/ingest/fetch_bodrum_kos_osm.py). Bodrum and Kos themselves came from the admin relations above, not this fetch."
+    }
+  ],
+  "fetched_at": "2026-09-09T00:00:00Z",
+  "stale_after_days": 180,
+  "region_bbox_wgs84": [26.85, 36.6, 27.85, 37.25],
+  "processing": {
+    "filter_min_area_m2": 500,
+    "simplify_tolerance_deg": 0.00006,
+    "simplify_tolerance_m_approx": 6.6,
+    "land_piece_count_before_filter": 471,
+    "land_piece_count_after_filter": 125
+  },
+  "validation": {
+    "sanity_checks_passed": [
+      "Bodrum peninsula interior classifies as land",
+      "Point south of Krio burnu (cape) classifies as water",
+      "Kos island interior classifies as land",
+      "Bodrum-Kos channel midpoint classifies as water",
+      "Gulluk Bay interior classifies as land",
+      "Open sea south of Kos classifies as water"
+    ],
+    "engine_smoke_test": "services/routing water_graph builds successfully against this geometry and finds a correct channel-crossing route (see git history / conversation log for the one-off benchmark)."
+  },
+  "known_limitations": [
+    "Bathymetry is supplied by the separate data/manifests/bodrum_kos_bathymetry.json layer at approximately 115 m resolution; it cannot resolve every near-shore hazard.",
+    "OSM/OpenSeaMap physical hazards are supplied by data/manifests/bodrum_kos_marine_features.json. Official managed areas and unresolved notices are tracked separately. Marina, harbour, and explicit marine-fuel POIs are supplied by data/manifests/bodrum_kos_marine_pois.json.",
+    "Community-mapped OSM coastline, not an official hydrographic chart. Still not navigation-grade (CLAUDE.md Section 45)."
+  ],
+  "hard_required": true,
+  "data_note": "Real OpenStreetMap-derived coastline for Bodrum peninsula, Kos island, and ~470 surrounding islets. EMODnet DTM bathymetry, hazards, official managed areas/notices, and marine POIs are tracked in separate manifests. Incomplete legal boundaries, coarse bathymetry, and community-data limitations keep confidence LOW."
+}

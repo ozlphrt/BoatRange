@@ -1,0 +1,34 @@
+{
+  "layer_type": "marine_obstacles_and_restrictions",
+  "region_id": "bodrum-kos-real",
+  "source_name": "OpenStreetMap / OpenSeaMap seamark tags",
+  "source_version": "osm-snapshot-2026-09-13",
+  "fetched_at": "2026-09-13T00:00:00Z",
+  "region_bbox_wgs84": [26.85, 36.6, 27.85, 37.25],
+  "normalized_file": "data/fixtures/bodrum_kos_real/marine-features.geojson",
+  "sha256": "b225513bd4412abbc9ba889c1485103208d487166572557c874b379a0ae6db12",
+  "raw_files": {
+    "marine-features-osm.json": "183ddd8dade34bbc4c57b6c6af0e99bbd8ff6a2c79d110be6bf7e974d5bb745c",
+    "seamarks-osm.json": "d234c04a88689f48523140824cbf1f7adddfe7b40c59e9e58df61f4215ab088a"
+  },
+  "counts": {
+    "breakwater": 56,
+    "groyne": 1,
+    "rock": 109,
+    "wreck": 1,
+    "obstruction": 1,
+    "restricted_area": 0,
+    "total": 168
+  },
+  "classification": {
+    "physical_obstacles": "HARD_NO_GO",
+    "restricted_area_no_entry_or_navigation_prohibited": "HARD_NO_GO",
+    "other_or_ambiguous_restricted_area": "CAUTION_CONDITIONAL",
+    "unrecognized_seamark": "INFORMATIONAL"
+  },
+  "known_limitations": [
+    "No restricted-area polygons were returned for this bbox; this means the OSM layer is incomplete for legal restrictions, not that no restrictions exist.",
+    "Community-mapped features may be incomplete or stale and are not a replacement for official navigation publications.",
+    "Point hazards and line obstacles receive the user-selected clearance buffer during routing."
+  ]
+}

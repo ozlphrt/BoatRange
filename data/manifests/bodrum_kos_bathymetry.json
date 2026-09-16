@@ -1,0 +1,28 @@
+{
+  "layer_type": "bathymetry_dtm",
+  "region_id": "bodrum-kos-real",
+  "source_name": "EMODnet Bathymetry Digital Terrain Model",
+  "source_version": "DTM-2024",
+  "source_url": "https://ows.emodnet-bathymetry.eu/wcs",
+  "coverage": "emodnet:mean",
+  "fetched_at": "2026-09-13T00:00:00Z",
+  "region_bbox_wgs84": [26.85, 36.6, 27.85, 37.25],
+  "horizontal_crs": "EPSG:4326",
+  "vertical_datum": "Lowest Astronomical Tide (LAT)",
+  "grid_resolution": "1/16 arc minute (approximately 115 m)",
+  "interpolation": "nearest",
+  "file": "data/fixtures/bodrum_kos_real/depth-emodnet-2024.tif",
+  "sha256": "c311e5b7d5e18e41bb94fd9f541f08c24f90041f67cf84fb1314162a4669973e",
+  "classification": {
+    "elevation_convention": "negative values are below LAT",
+    "safe_rule": "finite elevation <= -minimum_safe_depth_m",
+    "unknown_rule": "blocked under conservative policy"
+  },
+  "known_limitations": [
+    "The approximately 115 m DTM cannot resolve all rocks, harbor structures, dredged channels, or rapid near-shore depth changes.",
+    "This planning dataset is not an official navigation chart.",
+    "Restriction zones and temporary exclusions require separate layers."
+  ],
+  "hard_required": true
+}
+

@@ -1,0 +1,43 @@
+{
+  "layer_type": "coastline_land",
+  "region_id": "east-med-real",
+  "source_name": "OpenStreetMap contributors, via osmdata.openstreetmap.de pre-built land-polygons-split-4326",
+  "source_version": "land-polygons-split-4326.zip, snapshot fetched 2026-09-09 (925,678,592 bytes)",
+  "fetched_at": "2026-09-09T00:00:00Z",
+  "stale_after_days": 180,
+  "region_bbox_wgs84": [6.5, 34.5, 42.0, 46.5],
+  "processing": {
+    "aoi_note": "A single rectangular bounding box covering Italy, Greece, Cyprus, and Turkey's coastlines inevitably also covers neighboring countries (Albania, Croatia, Slovenia, Bosnia, Montenegro, Malta, Bulgaria, and parts of the wider Balkans/Levant) at the same data quality — incidental, not a scope decision.",
+    "world_shapefile_total_records": 871333,
+    "aoi_bbox_intersecting_records": 22800,
+    "pieces_after_union": 22091,
+    "sliver_filter_min_area_m2": 10000,
+    "pieces_after_sliver_filter": 2315,
+    "simplify_tolerance_deg": 0.0003,
+    "simplify_tolerance_m_approx": 30,
+    "final_piece_count": 2315,
+    "final_file_size_bytes": 6816404,
+    "note_on_sliver_filter": "A 1-hectare minimum area (20x more aggressive than bodrum_kos_real's 500 m^2) was needed to keep this much wider region's file size manageable — this drops small islets/rocks under roughly 100m across everywhere in this region EXCEPT where a higher-detail region (bodrum-kos-real) is checked first and wins for that specific area."
+  },
+  "validation": {
+    "sanity_checks_passed": [
+      "Rome interior classifies as land",
+      "Athens interior classifies as land",
+      "Nicosia interior classifies as land",
+      "Bodrum peninsula classifies as land (consistent with bodrum-kos-real)",
+      "Kos interior classifies as land (consistent with bodrum-kos-real)",
+      "Istanbul (near the Bosphorus) classifies as land",
+      "Antalya coast classifies as land",
+      "Mid-Aegean open sea classifies as water",
+      "Ionian sea (between Italy and Greece) classifies as water",
+      "Bodrum-Kos channel classifies as water"
+    ]
+  },
+  "known_limitations": [
+    "Sliver filter (1 hectare minimum) drops small islets/rocks below roughly 100m across across most of this region — real navigational hazards at that scale are NOT represented outside the higher-detail bodrum-kos-real area.",
+    "No bathymetry, restriction zones, or marina/fuel-dock data.",
+    "Projection distortion: this region spans ~12 degrees of latitude (34.5-46.5N) but uses one fixed LocalProjection reference point (lat_ref=40, lon_ref=24) for the whole box. The projection's east-west (longitude) scale factor is cos(lat_ref); using one fixed reference latitude across that span means distance/fuel calculations for an origin far from the reference point (e.g. Sicily, or Turkey's Black Sea coast) can be off by roughly 10-15% in the east-west direction relative to a calculation done with the correct local latitude. This is a known, documented approximation (CLAUDE.md Section 44.20 forbids claiming navigation-grade accuracy) — a proper fix is a per-request dynamic local projection centered on the actual origin, a separate architecture change not yet made (apps/api/app/regions.py currently assigns one fixed LocalProjection per region)."
+  ],
+  "hard_required": true,
+  "data_note": "Real OpenStreetMap coastline (full detail down to 1-hectare islets) covering Italy, Greece, Cyprus, Turkey, and incidentally their neighbors. No bathymetry, restrictions, or POI data. Distance/fuel accuracy degrades for origins far from this region's projection reference point. Confidence stays LOW."
+}

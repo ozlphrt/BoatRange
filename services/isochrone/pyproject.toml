@@ -1,0 +1,18 @@
+[project]
+name = "axopar-isochrone"
+version = "0.1.0"
+description = "One-way and round-trip isochrone engine for Axopar 28 Range Planner"
+requires-python = ">=3.11"
+dependencies = [
+    "shapely>=2.0.0",
+    "numpy>=1.26.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"

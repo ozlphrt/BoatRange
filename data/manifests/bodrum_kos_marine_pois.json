@@ -1,0 +1,24 @@
+{
+  "region": "bodrum-kos-real",
+  "source": "OpenStreetMap / OpenSeaMap via QLever OSM planet",
+  "queryEndpoint": "https://qlever.dev/api/osm-planet",
+  "queriedAt": "2026-09-16",
+  "sourceVersion": "qlever-osm-planet-query-2026-09-16",
+  "bbox": [26.85, 36.60, 27.85, 37.25],
+  "tags": [
+    "leisure=marina",
+    "seamark:type=harbour",
+    "waterway=fuel",
+    "seamark:small_craft_facility:category=fuel_station"
+  ],
+  "counts": {"total": 33, "marina": 29, "harbour": 2, "fuel_dock": 2},
+  "rawSha256": "1af2ff9437ef2b8b8383699f6ae76584f288b5b863add98ee5195693e18c6e60",
+  "normalizedSha256": "e8a64a7b569c056eed1c00c55ef79884bc7bc6f2996d00dfbf1d0715dd9b67c4",
+  "freshnessPolicy": "Refresh at least every 30 days and before a production release.",
+  "limitations": [
+    "Community-maintained POIs can be incomplete or stale.",
+    "QLever's OSM planet snapshot may lag live OpenStreetMap edits.",
+    "A mapped fuel point does not guarantee current stock, opening hours, berth access, or fuel compatibility.",
+    "POIs are planning references and do not affect the navigability mask."
+  ]
+}

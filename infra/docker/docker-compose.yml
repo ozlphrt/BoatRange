@@ -1,0 +1,16 @@
+services:
+  postgis:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: axopar_dev
+      POSTGRES_USER: axopar
+      POSTGRES_PASSWORD: axopar_dev_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+      # Mount migrations directory — Docker entrypoint runs .sql files alphabetically
+      - ../../apps/api/migrations:/docker-entrypoint-initdb.d
+
+volumes:
+  postgis_data:

@@ -1,0 +1,37 @@
+{
+  "layerType": "official_managed_and_restricted_areas",
+  "regionId": "bodrum-kos-real",
+  "fetchedAt": "2026-09-14T00:00:00Z",
+  "regionBboxWgs84": [
+    26.85,
+    36.6,
+    27.85,
+    37.25
+  ],
+  "wfsEndpoint": "https://ows.emodnet-humanactivities.eu/wfs",
+  "upstreamLayers": [
+    "emodnet:militaryareaspoly",
+    "emodnet:natura2000areas"
+  ],
+  "normalizedFile": "data/fixtures/bodrum_kos_real/official-managed-areas.geojson",
+  "normalizedSha256": "914f80faea4d67a0e1bc6d4ddd1ed4ae5f80ff8e6f1a551f568ffe69e8d35cb9",
+  "unresolvedNoticesFile": "data/fixtures/bodrum_kos_real/official-unresolved-notices.json",
+  "unresolvedNoticesSha256": "4293b02b5c1ca5007c32d0a4bf257cc84b4bb4154a558600256ffaca994cc82c",
+  "rawChecksums": {
+    "official-militaryareaspoly-raw.json": "b7b2e6cccf38ee2664b57cbb03a1aa482e2e35b253cd064015226f3651845f56",
+    "official-natura2000areas-raw.json": "0f4f106876361750ff6030acad5d7bf88341a2f651e2f2911da6d2cff593ef87"
+  },
+  "counts": {
+    "HARD_NO_GO": 0,
+    "CAUTION_CONDITIONAL": 0,
+    "INFORMATIONAL": 8,
+    "unresolvedNotices": 2
+  },
+  "coverageFinding": "No EMODnet military polygons intersected the Bodrum/Kos bbox on the fetch date.",
+  "classificationPolicy": {
+    "explicitActiveMilitaryArea": "HARD_NO_GO",
+    "unknownStatusMilitaryArea": "CAUTION_CONDITIONAL",
+    "Natura2000": "INFORMATIONAL",
+    "officialNoticeWithoutBoundary": "CAUTION_CONDITIONAL and never converted to guessed geometry"
+  }
+}

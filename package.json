@@ -1,0 +1,17 @@
+{
+  "name": "axopar-range-planner",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:api": "apps/api/.venv/bin/uvicorn app.main:app --reload --port 8000 --app-dir apps/api",
+    "dev:web": "npm --prefix apps/web run dev",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
