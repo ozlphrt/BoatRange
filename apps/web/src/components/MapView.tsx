@@ -204,16 +204,13 @@ export function MapView({ region, bands, origin, destination, routeLine, clickMo
         id: `${SRC_LAND}-fill`,
         type: "fill",
         source: SRC_LAND,
-        // The global basemap supplies visual context outside the compute
-        // region. Keep the engine's exact coastline visible as a restrained
-        // verification overlay instead of an opaque rectangular map patch.
-        paint: { "fill-color": "#d9d4c7", "fill-opacity": 0 },
+        paint: { "fill-color": "#e8e4d9", "fill-opacity": 0.96 },
       });
       map.addLayer({
         id: `${SRC_LAND}-outline`,
         type: "line",
         source: SRC_LAND,
-        paint: { "line-color": "#9f9a8e", "line-width": 0.8, "line-opacity": 0 },
+        paint: { "line-color": "#9f9a8e", "line-width": 0.9, "line-opacity": 0.85 },
       });
 
       map.addSource(SRC_MARINE_FEATURES, { type: "geojson", data: EMPTY_FC });
@@ -450,18 +447,17 @@ export function MapView({ region, bands, origin, destination, routeLine, clickMo
     });
   }, [developerMode, region]);
 
-  // The engine coastline is clipped to its data-coverage rectangle. Showing
-  // that fill in the normal map creates a false rectangular "map boundary"
-  // over the global basemap. Keep it available as a diagnostic overlay only.
+  // The bundled map has no external tiles: the routing engine's own coastline
+  // is the visible land layer. Developer mode only changes emphasis.
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
     whenStyleReady(sourcesReadyRef.current, (cb) => sourcesReadyCallbacksRef.current.push(cb), () => mapRef.current === map, () => {
       if (map.getLayer(`${SRC_LAND}-fill`)) {
-        map.setPaintProperty(`${SRC_LAND}-fill`, "fill-opacity", developerMode ? 0.22 : 0);
+        map.setPaintProperty(`${SRC_LAND}-fill`, "fill-opacity", developerMode ? 0.78 : 0.96);
       }
       if (map.getLayer(`${SRC_LAND}-outline`)) {
-        map.setPaintProperty(`${SRC_LAND}-outline`, "line-opacity", developerMode ? 0.7 : 0);
+        map.setPaintProperty(`${SRC_LAND}-outline`, "line-opacity", developerMode ? 1 : 0.85);
       }
     });
   }, [developerMode]);

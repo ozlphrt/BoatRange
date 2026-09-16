@@ -1,12 +1,9 @@
 import type { StyleSpecification } from "maplibre-gl";
 
-/** Provider seam for the display map. Use a quiet global basemap by default
- * so the slippy map remains useful beyond the routing engine's current data
- * extent. MapView still overlays the exact coastline geometry used by the
- * engine, so the contextual basemap never becomes routing authority.
- *
- * OpenFreeMap's Positron style is deliberately subdued and does not require
- * an API key. Deployments can replace it with VITE_MAP_STYLE_URL. */
+/** Provider seam for the display map. The default is bundled and requires no
+ * tile server, API key, CORS permission, or network access beyond this site.
+ * MapView paints the exact routing coastline over this water background.
+ * Deployments may opt into a richer map with VITE_MAP_STYLE_URL. */
 
 const SIMPLE_MARINE_STYLE: StyleSpecification = {
   version: 8,
@@ -24,7 +21,7 @@ export function resolveBasemapStyleUrl(): string | StyleSpecification {
   const explicit = import.meta.env.VITE_MAP_STYLE_URL as string | undefined;
   if (explicit) return explicit;
 
-  return "https://tiles.openfreemap.org/styles/positron";
+  return SIMPLE_MARINE_STYLE;
 }
 
 /** Kept as an offline-safe style for callers that want to opt out of network
